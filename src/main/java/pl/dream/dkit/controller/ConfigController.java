@@ -11,6 +11,7 @@ import pl.dream.dreamlib.Color;
 import pl.dream.dreamlib.Config;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class ConfigController {
     private final FileConfiguration config;
@@ -33,7 +34,7 @@ public class ConfigController {
             ItemStack itemStack = Config.getItemStack(config, "kitListInventory.container."+indexString);
             String kitName = config.getString("kitListInventory.container."+indexString+".kitName");
             if(kitName==null){
-                items.put(index, new Item(itemStack));
+                items.put(index, new Item(itemStack, false));
             }
             else{
                 items.put(index, new KitListItem(itemStack, kitName));
@@ -50,13 +51,17 @@ public class ConfigController {
             HashMap<Integer, Item> items = new HashMap<>();
             for(String indexString : config.getConfigurationSection("kits."+kitName+".items").getKeys(false)){
                 int index = Integer.parseInt(indexString);
+                boolean give = config.getBoolean("kits."+kitName+".items."+indexString+".give", true);
 
                 ItemStack itemStack = Config.getItemStack(config, "kits."+kitName+".items."+indexString);
-                Item item = new Item(itemStack);
+                Item item = new Item(itemStack, give);
                 items.put(index, item);
             }
 
-            Kit kit = new Kit(size, title, items);
+            List<String> commands = config.getStringList("kits."+kitName+".commands");
+            int requiredSpace = config.getInt("kits."+kitName+".requiredSpace");
+
+            Kit kit = new Kit(size, title, items, commands, requiredSpace);
             DKit.getPlugin().kits.put(kitName, kit);
         }
     }

@@ -1,6 +1,7 @@
 package pl.dream.dkit.inventory;
 
 import org.bukkit.Bukkit;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
@@ -37,6 +38,13 @@ public class KitListInventory implements InventoryHolder {
 
         player.openInventory(inv);
     }
+
+    public void clickItem(LocalPlayer player, int slot, ClickType clickType){
+        if(items.containsKey(slot)){
+            items.get(slot).onClick(player, clickType);
+        }
+    }
+
 
     private ItemStack getItemStack(Item item, LocalPlayer player){
         ItemStack itemStack = item.getItemStack();

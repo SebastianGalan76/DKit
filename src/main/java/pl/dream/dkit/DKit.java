@@ -7,6 +7,7 @@ import pl.dream.dkit.data.Kit;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.inventory.KitInventory;
 import pl.dream.dkit.inventory.KitListInventory;
+import pl.dream.dkit.listener.ClickInventoryListener;
 import pl.dream.dkit.listener.PlayerJoinListener;
 import pl.dream.dkit.listener.PlayerQuitListener;
 
@@ -31,6 +32,7 @@ public final class DKit extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
+        getServer().getPluginManager().registerEvents(new ClickInventoryListener(), this);
 
         loadPlugin();
     }
