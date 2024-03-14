@@ -93,6 +93,7 @@ public class LocalPlayer {
         kitDelays.put(kit.name, (System.currentTimeMillis()/1000) + kit.delay);
         DKit.getPlugin().sqLite.takeKit(player.getUniqueId(), kit.name, kit.delay);
         Message.sendMessage(player, Locale.GET_KIT_CORRECT.toString());
+        player.closeInventory();
         Utils.playSuccessSounds(player);
     }
 

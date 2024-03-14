@@ -11,6 +11,7 @@ import java.util.*;
 
 public enum Locale {
     NO_PERMISSIONS("noPermissions", "Brak uprawnień"),
+    RELOAD("reload", ""),
     KIT_LORE_ACCESS_YES("kitLore.access.yes", ""),
     KIT_LORE_ACCESS_NO("kitLore.access.no", ""),
     KIT_LORE_DELAY_INFO("kitLore.delay.info", ""),
