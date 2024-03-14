@@ -1,0 +1,28 @@
+kits:
+  food:
+    title: "ss"
+    size: 54
+    items:
+      0:
+        material: DIAMOND
+        amount: 43
+        name: "sss"
+      1:
+        material: SAND
+        amount: 43
+        commands:
+          - "bc {PLAYER} take kit"
+
+kitListInventory:
+  title: ""
+  size: 54
+  container:
+    0:
+      material: DIAMOND
+      kitName: jedzenie
+      amount: 43
+      name: "sss"
+      lore:
+        - ""
+        - "{PLAYER}"
+        - "sss"
