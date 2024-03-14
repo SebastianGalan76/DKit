@@ -16,17 +16,21 @@ public class Kit {
     private final int requiredSpace;
     private final String name;
     private final long delay;
+    private final String delayInfo;
+    private final String accessInfo;
 
     private final CommandSender console;
     private final HashMap<Integer, Item> items;
 
-    public Kit(int size, String title, HashMap<Integer, Item> items, List<String> commands, int requiredSpace, String name, long delay){
+    public Kit(int size, String title, HashMap<Integer, Item> items, List<String> commands, int requiredSpace, String name, long delay, String delayInfo, String accessInfo){
         inventory = new KitInventory(this, size, title, items);
         this.items = items;
         this.commands = commands;
         this.requiredSpace = requiredSpace;
         this.name = name;
         this.delay = delay;
+        this.delayInfo = delayInfo;
+        this.accessInfo = accessInfo;
 
         console = Bukkit.getConsoleSender();
     }
@@ -49,5 +53,13 @@ public class Kit {
 
     public void displayPreview(LocalPlayer player){
         inventory.openInventory(player);
+    }
+
+    public String getDelayInfo(){
+        return delayInfo;
+    }
+
+    public String getAccessInfo(){
+        return accessInfo;
     }
 }

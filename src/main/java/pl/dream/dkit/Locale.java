@@ -10,7 +10,13 @@ import java.io.IOException;
 import java.util.*;
 
 public enum Locale {
-    NO_PERMISSIONS("noPermissions", "Brak uprawnień");
+    NO_PERMISSIONS("noPermissions", "Brak uprawnień"),
+    KIT_LORE_ACCESS_YES("kitLore.access.yes", ""),
+    KIT_LORE_ACCESS_NO("kitLore.access.no", ""),
+    KIT_LORE_DELAY_INFO("kitLore.delay.info", ""),
+    KIT_LORE_DELAY_LEFT("kitLore.delay.left", ""),
+    KIT_LORE_ACTION_GET("kitLore.action.get", ""),
+    KIT_LORE_ACTION_PREVIEW("kitLore.action.preview", "");
 
     private final String path;
     private String text;

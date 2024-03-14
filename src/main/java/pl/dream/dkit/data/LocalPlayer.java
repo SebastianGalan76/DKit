@@ -50,4 +50,8 @@ public class LocalPlayer {
     public UUID getUUID(){
         return player.getUniqueId();
     }
+
+    public boolean hasPermission(String permission){
+        return player.hasPermission(permission);
+    }
 }

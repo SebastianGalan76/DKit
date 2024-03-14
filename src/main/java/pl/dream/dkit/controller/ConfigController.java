@@ -61,8 +61,10 @@ public class ConfigController {
             List<String> commands = config.getStringList("kits."+kitName+".commands");
             int requiredSpace = config.getInt("kits."+kitName+".requiredSpace");
             long delay = config.getLong("kits."+kitName+".delay");
+            String accessInfo = Color.fixRGB(config.getString("kits."+kitName+".accessInfo", ""));
+            String delayInfo = Color.fixRGB(config.getString("kits."+kitName+".delayInfo", ""));
 
-            Kit kit = new Kit(size, title, items, commands, requiredSpace, kitName, delay);
+            Kit kit = new Kit(size, title, items, commands, requiredSpace, kitName, delay, delayInfo, accessInfo);
             DKit.getPlugin().kits.put(kitName, kit);
         }
     }

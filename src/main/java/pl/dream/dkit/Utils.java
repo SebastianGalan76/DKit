@@ -1,12 +1,12 @@
 package pl.dream.dkit;
 
 public class Utils {
-    public static String convertTime(int timeInt){
+    public static String convertTime(long timeInt){
         String time = "";
 
-        int hours = getHours(timeInt);
-        int minutes = getMinutes(timeInt);
-        int seconds = getSeconds(timeInt);
+        long hours = getHours(timeInt);
+        long minutes = getMinutes(timeInt);
+        long seconds = getSeconds(timeInt);
 
         if(hours<=0){
             time+="00:";
@@ -41,15 +41,15 @@ public class Utils {
         return time;
     }
 
-    private static int getHours(int timeInt){
+    private static long getHours(long timeInt){
         return timeInt/3600;
     }
-    private static int getMinutes(int timeInt){
+    private static long getMinutes(long timeInt){
         timeInt -= getHours(timeInt)*3600;
 
         return timeInt/60;
     }
-    private static int getSeconds(int timeInt){
+    private static long getSeconds(long timeInt){
         timeInt -= getHours(timeInt)*3600;
         timeInt -= getMinutes(timeInt)*60;
 

@@ -29,4 +29,8 @@ public class KitListItem extends Item{
             kit.get(player);
         }
     }
+
+    public String getKitName(){
+        return kitName;
+    }
 }
