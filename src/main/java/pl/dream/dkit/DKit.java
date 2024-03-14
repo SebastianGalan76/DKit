@@ -16,6 +16,7 @@ import java.util.UUID;
 
 public final class DKit extends JavaPlugin {
     private static DKit plugin;
+    public SQLite sqLite;
 
     public KitListInventory kitListInventory;
 
@@ -28,6 +29,9 @@ public final class DKit extends JavaPlugin {
         players = new HashMap<>();
         kits = new HashMap<>();
 
+        sqLite = new SQLite();
+        sqLite.connect();
+
         getCommand("kit").setExecutor(new KitCommand());
 
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
@@ -39,7 +43,7 @@ public final class DKit extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        sqLite.disconnect();
     }
 
     public void reloadPlugin(){

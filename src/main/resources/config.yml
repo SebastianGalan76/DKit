@@ -2,6 +2,7 @@ kits:
   food:
     title: "ss"
     size: 54
+    delay: 30
     requiredSpace: 10
     commands:
       - ''
@@ -16,8 +17,6 @@ kits:
       1:
         material: SAND
         amount: 43
-
-
 kitListInventory:
   title: ""
   size: 54

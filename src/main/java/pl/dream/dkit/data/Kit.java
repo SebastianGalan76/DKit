@@ -2,6 +2,7 @@ package pl.dream.dkit.data;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import pl.dream.dkit.DKit;
 import pl.dream.dkit.data.item.Item;
 import pl.dream.dkit.inventory.KitInventory;
 
@@ -13,15 +14,19 @@ public class Kit {
 
     private final List<String> commands;
     private final int requiredSpace;
+    private final String name;
+    private final long delay;
 
     private final CommandSender console;
     private final HashMap<Integer, Item> items;
 
-    public Kit(int size, String title, HashMap<Integer, Item> items, List<String> commands, int requiredSpace){
+    public Kit(int size, String title, HashMap<Integer, Item> items, List<String> commands, int requiredSpace, String name, long delay){
         inventory = new KitInventory(this, size, title, items);
         this.items = items;
         this.commands = commands;
         this.requiredSpace = requiredSpace;
+        this.name = name;
+        this.delay = delay;
 
         console = Bukkit.getConsoleSender();
     }
@@ -37,6 +42,9 @@ public class Kit {
         for(Item item:items.values()){
             player.addItem(item.getItem());
         }
+
+        DKit.getPlugin().sqLite.takeKit(player.getUUID(), name, delay);
+        player.getKit(name, delay);
     }
 
     public void displayPreview(LocalPlayer player){

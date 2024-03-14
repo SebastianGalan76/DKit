@@ -60,8 +60,9 @@ public class ConfigController {
 
             List<String> commands = config.getStringList("kits."+kitName+".commands");
             int requiredSpace = config.getInt("kits."+kitName+".requiredSpace");
+            long delay = config.getLong("kits."+kitName+".delay");
 
-            Kit kit = new Kit(size, title, items, commands, requiredSpace);
+            Kit kit = new Kit(size, title, items, commands, requiredSpace, kitName, delay);
             DKit.getPlugin().kits.put(kitName, kit);
         }
     }
