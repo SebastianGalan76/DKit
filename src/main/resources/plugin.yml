@@ -1,0 +1,7 @@
+name: DKit
+version: '${project.version}'
+main: pl.dream.dkit.DKit
+api-version: '1.20'
+depend:
+  - DreamLib
+authors: [DreaMPL]
