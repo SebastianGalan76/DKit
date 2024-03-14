@@ -83,32 +83,6 @@ public class SQLite {
             }
         });
     }
-
-    public int getDelayTime(UUID uuid, String kitName){
-        int delayLeft = 0;
-
-        PreparedStatement ps = null;
-        try{
-            ps = con.prepareStatement("SELECT STRFTIME('%s',Delay)-STRFTIME('%s',datetime()) DelayLeft FROM PlayerKits WHERE UUID = ? AND KitName = ?;");
-            ps.setString(1, uuid.toString());
-            ps.setString(2, kitName);
-
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                delayLeft = rs.getInt("DelayLeft");
-            }
-            rs.close();
-            ps.close();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
-        if(delayLeft<0){
-            delayLeft=0;
-        }
-
-        return delayLeft;
-    }
     public void takeKit(UUID uuid, String kitName, long delay){
         JavaPlugin plugin = DKit.getPlugin();
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, new Runnable() {

@@ -48,7 +48,7 @@ public class Kit {
         }
 
         DKit.getPlugin().sqLite.takeKit(player.getUUID(), name, delay);
-        player.getKit(name, delay);
+        player.getKit(name, (System.currentTimeMillis()/1000) + delay);
     }
 
     public void displayPreview(LocalPlayer player){

@@ -1,11 +1,11 @@
 noPermission: "&c» Nie posiadasz wymaganych uprawnień!"
 kitLore:
   access:
-    yes: "&9 » &7Posiadasz dostęp: &aTAK"
-    no: "&9 » &7Posiadasz dostęp: &cNIE"
+    'yes': "&9 » &7Posiadasz dostęp: &aTAK"
+    'no': "&9 » &7Posiadasz dostęp: &cNIE"
   delay:
-    info: "&9 » &7Możliwość odbioru co: &b {DELAY_TEXT}"
+    info: "&9 » &7Możliwość odbioru co: &b {DELAY_INFO}"
     left: "&9 » &7Możesz odebrać za &c{DELAY_LEFT}"
   action:
-    get: "&7Kliknij &a[LPM]&7, aby odebrać zestaw."
-    preview: "&7Kliknij &a[PPM]&7, aby zobaczyć podgląd."
+    get: "&a • &7Kliknij &a[LPM]&7, aby odebrać zestaw."
+    preview: "&a • &7Kliknij &a[PPM]&7, aby zobaczyć podgląd."

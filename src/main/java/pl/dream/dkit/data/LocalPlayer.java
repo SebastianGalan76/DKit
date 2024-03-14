@@ -1,5 +1,6 @@
 package pl.dream.dkit.data;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -38,9 +39,15 @@ public class LocalPlayer {
     }
 
     public long getDelay(String kitName){
-        long delay = kitDelays.get(kitName);
+        if(kitDelays==null){
+            return 1000;
+        }
 
-        return delay - System.currentTimeMillis();
+        if(kitDelays.containsKey(kitName)){
+            long delay = kitDelays.get(kitName);
+            return delay - System.currentTimeMillis()/1000;
+        }
+        return 0;
     }
 
     public String getName(){

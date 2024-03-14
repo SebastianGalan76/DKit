@@ -7,6 +7,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.Debug;
 import org.jetbrains.annotations.NotNull;
 import pl.dream.dkit.DKit;
 import pl.dream.dkit.Locale;
@@ -73,6 +74,7 @@ public class KitListInventory implements InventoryHolder {
                         .replace("{DELAY_INFO}", kit.getDelayInfo()));
 
                 long kitDelay = player.getDelay(kitName);
+                Bukkit.getLogger().warning("SSS"+kitDelay);
 
                 if(player.hasPermission("dkit.kit."+kitName) && kitDelay>0){
                     lore.add(Locale.KIT_LORE_DELAY_LEFT.toString()
