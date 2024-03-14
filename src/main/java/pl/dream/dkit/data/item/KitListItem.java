@@ -5,6 +5,7 @@ import org.bukkit.inventory.ItemStack;
 import pl.dream.dkit.DKit;
 import pl.dream.dkit.data.Kit;
 import pl.dream.dkit.data.LocalPlayer;
+import pl.dream.dkit.util.Utils;
 
 public class KitListItem extends Item{
     private final String kitName;
@@ -26,8 +27,10 @@ public class KitListItem extends Item{
             kit.displayPreview(player);
         }
         else if(clickType==ClickType.RIGHT){
-            kit.get(player);
+            player.getKit(kit);
         }
+
+        Utils.playUISounds(player.getPlayer());
     }
 
     public String getKitName(){

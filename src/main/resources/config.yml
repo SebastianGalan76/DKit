@@ -1,10 +1,13 @@
 kits:
   food:
-    title: "ss"
+    title: "&9Jedzenie"
     size: 54
     delay: 30
     delayInfo: "30 sekund"
     accessInfo: "Dostępne dla &6VIP"
+    noPermission:
+      - ""
+      - ""
     requiredSpace: 10
     commands:
       - "bc {PLAYER} take kit"

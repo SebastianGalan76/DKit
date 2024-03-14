@@ -63,8 +63,9 @@ public class ConfigController {
             long delay = config.getLong("kits."+kitName+".delay");
             String accessInfo = Color.fixRGB(config.getString("kits."+kitName+".accessInfo", ""));
             String delayInfo = Color.fixRGB(config.getString("kits."+kitName+".delayInfo", ""));
+            List<String> noPermission = Color.fixRGB(config.getStringList("kits."+kitName+".noPermission"));
 
-            Kit kit = new Kit(size, title, items, commands, requiredSpace, kitName, delay, delayInfo, accessInfo);
+            Kit kit = new Kit(size, title, items, commands, requiredSpace, kitName, delay, delayInfo, accessInfo, noPermission);
             DKit.getPlugin().kits.put(kitName, kit);
         }
     }

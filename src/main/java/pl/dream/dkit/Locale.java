@@ -16,7 +16,12 @@ public enum Locale {
     KIT_LORE_DELAY_INFO("kitLore.delay.info", ""),
     KIT_LORE_DELAY_LEFT("kitLore.delay.left", ""),
     KIT_LORE_ACTION_GET("kitLore.action.get", ""),
-    KIT_LORE_ACTION_PREVIEW("kitLore.action.preview", "");
+    KIT_LORE_ACTION_PREVIEW("kitLore.action.preview", ""),
+    DELAY("delay", ""),
+    NOT_ENOUGH_SPACE("notEnoughSpace", ""),
+    ITEM_DROP("itemDrop", ""),
+    GET_KIT_CORRECT("getKitCorrect", ""),
+    ;
 
     private final String path;
     private String text;

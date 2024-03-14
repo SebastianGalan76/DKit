@@ -1,17 +1,16 @@
 package pl.dream.dkit.inventory;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.Debug;
 import org.jetbrains.annotations.NotNull;
 import pl.dream.dkit.DKit;
 import pl.dream.dkit.Locale;
-import pl.dream.dkit.Utils;
+import pl.dream.dkit.util.Time;
+import pl.dream.dkit.util.Utils;
 import pl.dream.dkit.data.Kit;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.data.item.Item;
@@ -64,31 +63,30 @@ public class KitListInventory implements InventoryHolder {
 
                 List<String> lore = new ArrayList<>();
                 lore.add("");
-                if(player.hasPermission("dkit.kit."+kitName.toLowerCase())){
+                if(player.getPlayer().hasPermission("dkit.kit."+kitName.toLowerCase())){
                     lore.add(Locale.KIT_LORE_ACCESS_YES.toString());
                 }
                 else{
                     lore.add(Locale.KIT_LORE_ACCESS_NO.toString());
                 }
                 lore.add(Locale.KIT_LORE_DELAY_INFO.toString()
-                        .replace("{DELAY_INFO}", kit.getDelayInfo()));
+                        .replace("{DELAY_INFO}", kit.delayInfo));
 
                 long kitDelay = player.getDelay(kitName);
-                Bukkit.getLogger().warning("SSS"+kitDelay);
 
-                if(player.hasPermission("dkit.kit."+kitName) && kitDelay>0){
+                if(player.getPlayer().hasPermission("dkit.kit."+kitName) && kitDelay>0){
                     lore.add(Locale.KIT_LORE_DELAY_LEFT.toString()
-                            .replace("{DELAY_LEFT}", Utils.convertTime(kitDelay)));
+                            .replace("{DELAY_LEFT}", Time.convertTime(kitDelay)));
                 }
 
-                String accessInfo = kit.getAccessInfo();
+                String accessInfo = kit.accessInfo;
                 if(accessInfo!=null){
                     lore.add(accessInfo);
                 }
 
                 lore.add("");
                 lore.add(Locale.KIT_LORE_ACTION_PREVIEW.toString());
-                if(player.hasPermission("dkit.kit."+kitName) && kitDelay<=0){
+                if(player.getPlayer().hasPermission("dkit.kit."+kitName) && kitDelay<=0){
                     lore.add(Locale.KIT_LORE_ACTION_GET.toString());
                 }
 

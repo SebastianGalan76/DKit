@@ -61,7 +61,7 @@ public class SQLite {
                 PreparedStatement ps = null;
                 try{
                     ps = con.prepareStatement("SELECT STRFTIME('%s',Delay) DelayLeft, KitName FROM PlayerKits WHERE UUID = ?");
-                    ps.setString(1, player.getUUID().toString());
+                    ps.setString(1, player.getPlayer().getUniqueId().toString());
 
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()){

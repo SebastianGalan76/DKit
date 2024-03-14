@@ -10,6 +10,7 @@ import pl.dream.dkit.DKit;
 import pl.dream.dkit.data.Kit;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.data.item.Item;
+import pl.dream.dkit.util.Utils;
 
 import java.util.HashMap;
 
@@ -44,11 +45,15 @@ public class KitInventory implements InventoryHolder {
     public void clickItem(LocalPlayer player, int slot){
         int startSlot = size - 9;
 
+        //Get the kit
         if(slot==startSlot){
-            kit.get(player);
+            player.getKit(kit);
+            Utils.playUISounds(player.getPlayer());
         }
+        //Return to the main list
         else if(slot==startSlot+4){
             DKit.getPlugin().kitListInventory.openInventory(player);
+            Utils.playUISounds(player.getPlayer());
         }
     }
 

@@ -1,4 +1,8 @@
 noPermission: "&c» Nie posiadasz wymaganych uprawnień!"
+delay: "&c» &7Musisz poczekać jeszcze &c{DELAY}&7, zanim ponownie weźmiesz ten zestaw."
+notEnoughSpace: "&8» &cNie masz wystarczająco miejsca w ekwipunku, aby odebrać ten zestaw."
+itemDrop: "&8» &cTwój ekwipunek jest pełny. Część przedmiotów wypadło na ziemię."
+getKitCorrect: "&8» &aOdebrałeś prawidłowo zestaw."
 kitLore:
   access:
     'yes': "&9 » &7Posiadasz dostęp: &aTAK"

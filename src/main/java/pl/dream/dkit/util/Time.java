@@ -1,6 +1,6 @@
-package pl.dream.dkit;
+package pl.dream.dkit.util;
 
-public class Utils {
+public class Time {
     public static String convertTime(long timeInt){
         String time = "";
 
