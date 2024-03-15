@@ -111,8 +111,34 @@ public class Kit implements IKit{
     }
 
     @Override
-    public void giveKit(LocalPlayer localPlayer) {
+    public void giveKit(Player player) {
+        if(commands!=null){
+            for(String cmd:commands){
+                cmd = cmd.replace("{PLAYER}", player.getName());
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
+            }
+        }
 
+        List<ItemStack> kitItems = new ArrayList<>();
+        for(Item item:items.values()){
+            ItemStack itemStack = item.getItem();
+
+            if(itemStack!=null){
+                kitItems.add(itemStack);
+            }
+        }
+
+        HashMap<Integer, ItemStack> itemsToDrop = player.getInventory().addItem(kitItems.toArray(new ItemStack[0]));
+        World world = player.getWorld();
+        Location loc = player.getLocation();
+
+        for(ItemStack item:itemsToDrop.values()){
+            world.dropItem(loc, item);
+        }
+
+        if(!itemsToDrop.isEmpty()){
+            Message.sendMessage(player, Locale.ITEM_DROP.toString());
+        }
     }
 
     public void displayPreview(LocalPlayer player){

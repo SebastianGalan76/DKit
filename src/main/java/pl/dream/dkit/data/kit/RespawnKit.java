@@ -32,9 +32,7 @@ public class RespawnKit implements IKit {
     }
 
     @Override
-    public void giveKit(LocalPlayer localPlayer) {
-        Player player = localPlayer.getPlayer();
-
+    public void giveKit(Player player) {
         if(commands!=null){
             for(String cmd:commands){
                 cmd = cmd.replace("{PLAYER}", player.getName());

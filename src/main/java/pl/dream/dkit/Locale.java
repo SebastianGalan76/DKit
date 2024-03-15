@@ -22,6 +22,9 @@ public enum Locale {
     NOT_ENOUGH_SPACE("notEnoughSpace", ""),
     ITEM_DROP("itemDrop", ""),
     GET_KIT_CORRECT("getKitCorrect", ""),
+    NO_PLAYER("noPlayer", ""),
+    NO_KIT("noKit", ""),
+    GIVE_KIT_TO_PLAYER("giveKitToPlayer", ""),
     ;
 
     private final String path;
