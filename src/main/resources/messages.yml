@@ -4,6 +4,9 @@ delay: "&c» &7Musisz poczekać jeszcze &c{DELAY}&7, zanim ponownie weźmiesz te
 notEnoughSpace: "&8» &cNie masz wystarczająco miejsca w ekwipunku, aby odebrać ten zestaw."
 itemDrop: "&8» &cTwój ekwipunek jest pełny. Część przedmiotów wypadło na ziemię."
 getKitCorrect: "&8» &aOdebrałeś prawidłowo zestaw."
+noPlayer: "&8» &cNie ma gracza o podanym nicku na serwerze!"
+noKit: "&8» &cNazwa zestawu nie jest prawidłowa!"
+giveKitToPlayer: "&8» &7Gracz &c{PLAYER} &7otrzymał zestaw &c{KIT}&7!"
 kitLore:
   access:
     'yes': "&9 » &7Posiadasz dostęp: &aTAK"
