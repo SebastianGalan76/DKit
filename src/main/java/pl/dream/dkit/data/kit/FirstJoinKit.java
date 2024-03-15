@@ -14,13 +14,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class RespawnKit implements IKit {
-
+public class FirstJoinKit implements IKit{
     private final List<String> commands;
     private final HashMap<Integer, Item> items;
     private final String message;
 
-    public RespawnKit(HashMap<Integer, Item> items, List<String> commands, String message){
+    public FirstJoinKit(HashMap<Integer, Item> items, List<String> commands, String message){
         this.items = items;
         this.commands = commands;
         this.message = message;

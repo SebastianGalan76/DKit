@@ -3,6 +3,7 @@ package pl.dream.dkit.controller;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import pl.dream.dkit.DKit;
+import pl.dream.dkit.data.kit.FirstJoinKit;
 import pl.dream.dkit.data.kit.IKit;
 import pl.dream.dkit.data.kit.Kit;
 import pl.dream.dkit.data.item.Item;
@@ -25,6 +26,7 @@ public class ConfigController {
 
         loadKits();
         loadRespawnKit();
+        loadFirstJoinKit();
     }
 
     private void loadKitListInventory(){
@@ -89,8 +91,29 @@ public class ConfigController {
         }
 
         List<String> commands = config.getStringList("respawnKit.commands");
+        String message = config.getString("respawnKit.getMessage");
 
-        IKit kit = new RespawnKit(items, commands);
+        IKit kit = new RespawnKit(items, commands, message);
         DKit.getPlugin().kits.put("respawn", kit);
+    }
+    private void loadFirstJoinKit(){
+        if(config.get("firstJoinKit")==null || !config.getBoolean("firstJoinKit.enable")){
+            return;
+        }
+
+        HashMap<Integer, Item> items = new HashMap<>();
+        for(String indexString : config.getConfigurationSection("firstJoinKit.items").getKeys(false)){
+            int index = Integer.parseInt(indexString);
+
+            ItemStack itemStack = Config.getItemStack(config, "firstJoinKit.items."+indexString);
+            Item item = new Item(itemStack, true);
+            items.put(index, item);
+        }
+
+        List<String> commands = config.getStringList("firstJoinKit.commands");
+        String message = config.getString("firstJoinKit.getMessage");
+
+        IKit kit = new FirstJoinKit(items, commands, message);
+        DKit.getPlugin().kits.put("firstJoinKit", kit);
     }
 }
