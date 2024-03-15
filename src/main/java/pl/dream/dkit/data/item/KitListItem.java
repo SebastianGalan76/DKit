@@ -27,7 +27,7 @@ public class KitListItem extends Item{
             kit.displayPreview(player);
         }
         else if(clickType==ClickType.RIGHT){
-            player.getKit(kit);
+            kit.getKit(player);
         }
 
         Utils.playUISounds(player.getPlayer());

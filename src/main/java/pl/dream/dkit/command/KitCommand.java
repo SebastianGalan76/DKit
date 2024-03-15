@@ -42,18 +42,13 @@ public class KitCommand implements CommandExecutor {
                 }
             }
             else{
-                if(!args[0].equalsIgnoreCase("afterressuraction")){
-                    Kit kit = DKit.getPlugin().kits.get(args[0]);
+                Kit kit = DKit.getPlugin().kits.get(args[0]);
 
-                    if(kit!=null){
-                        p.getKit(kit);
-                    }
-                    else{
-                        DKit.getPlugin().kitListInventory.openInventory(p);
-                    }
+                if(kit!=null){
+                    kit.getKit(p);
                 }
                 else{
-                    Message.sendMessage(sender, Locale.NO_PERMISSIONS.toString());
+                    DKit.getPlugin().kitListInventory.openInventory(p);
                 }
             }
         }

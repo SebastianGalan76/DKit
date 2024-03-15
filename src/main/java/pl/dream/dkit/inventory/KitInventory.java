@@ -47,7 +47,7 @@ public class KitInventory implements InventoryHolder {
 
         //Get the kit
         if(slot==startSlot){
-            player.getKit(kit);
+            kit.getKit(player);
             Utils.playUISounds(player.getPlayer());
         }
         //Return to the main list
