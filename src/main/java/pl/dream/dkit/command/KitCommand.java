@@ -7,7 +7,8 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import pl.dream.dkit.DKit;
 import pl.dream.dkit.Locale;
-import pl.dream.dkit.data.Kit;
+import pl.dream.dkit.data.kit.IKit;
+import pl.dream.dkit.data.kit.Kit;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dreamlib.Message;
 
@@ -42,7 +43,7 @@ public class KitCommand implements CommandExecutor {
                 }
             }
             else{
-                Kit kit = DKit.getPlugin().kits.get(args[0]);
+                IKit kit = DKit.getPlugin().kits.get(args[0]);
 
                 if(kit!=null){
                     kit.getKit(p);

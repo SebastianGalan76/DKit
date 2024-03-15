@@ -9,9 +9,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import pl.dream.dkit.DKit;
 import pl.dream.dkit.Locale;
+import pl.dream.dkit.data.kit.IKit;
 import pl.dream.dkit.util.Time;
-import pl.dream.dkit.util.Utils;
-import pl.dream.dkit.data.Kit;
+import pl.dream.dkit.data.kit.Kit;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.data.item.Item;
 import pl.dream.dkit.data.item.KitListItem;
@@ -59,7 +59,7 @@ public class KitListInventory implements InventoryHolder {
             if(item instanceof KitListItem){
                 KitListItem kitItem = (KitListItem) item;
                 String kitName = kitItem.getKitName();
-                Kit kit = DKit.getPlugin().kits.get(kitName);
+                Kit kit = (Kit)DKit.getPlugin().kits.get(kitName);
 
                 List<String> lore = new ArrayList<>();
                 lore.add("");

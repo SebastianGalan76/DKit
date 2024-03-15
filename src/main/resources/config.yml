@@ -20,6 +20,16 @@ kits:
       1:
         material: SAND
         amount: 43
+respawnKit:
+  enable: true
+  commands:
+    - "bc {PLAYER} respawn kit"
+  items:
+    0:
+      material: DIAMOND
+      amount: 12
+      name: "sss"
+
 kitListInventory:
   title: ""
   size: 54

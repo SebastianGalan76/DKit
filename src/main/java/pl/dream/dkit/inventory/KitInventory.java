@@ -7,7 +7,7 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import pl.dream.dkit.DKit;
-import pl.dream.dkit.data.Kit;
+import pl.dream.dkit.data.kit.Kit;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.data.item.Item;
 import pl.dream.dkit.util.Utils;

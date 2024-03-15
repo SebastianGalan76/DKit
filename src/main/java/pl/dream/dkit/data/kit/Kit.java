@@ -1,4 +1,4 @@
-package pl.dream.dkit.data;
+package pl.dream.dkit.data.kit;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import pl.dream.dkit.DKit;
 import pl.dream.dkit.Locale;
+import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.data.item.Item;
 import pl.dream.dkit.inventory.KitInventory;
 import pl.dream.dkit.util.Time;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Kit {
+public class Kit implements IKit{
     public final KitInventory inventory;
 
     public final String name;
@@ -107,6 +108,11 @@ public class Kit {
         Message.sendMessage(player, Locale.GET_KIT_CORRECT.toString());
         player.closeInventory();
         Utils.playSuccessSounds(player);
+    }
+
+    @Override
+    public void giveKit(LocalPlayer localPlayer) {
+
     }
 
     public void displayPreview(LocalPlayer player){

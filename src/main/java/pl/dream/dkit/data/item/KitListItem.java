@@ -3,7 +3,8 @@ package pl.dream.dkit.data.item;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import pl.dream.dkit.DKit;
-import pl.dream.dkit.data.Kit;
+import pl.dream.dkit.data.kit.IKit;
+import pl.dream.dkit.data.kit.Kit;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.util.Utils;
 
@@ -17,7 +18,7 @@ public class KitListItem extends Item{
 
     @Override
     public void onClick(LocalPlayer player, ClickType clickType) {
-        Kit kit = DKit.getPlugin().kits.get(kitName);
+        Kit kit = (Kit)DKit.getPlugin().kits.get(kitName);
 
         if(kit==null){
             return;
