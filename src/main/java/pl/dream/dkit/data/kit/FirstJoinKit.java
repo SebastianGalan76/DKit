@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import pl.dream.dkit.Locale;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.data.item.Item;
+import pl.dream.dkit.util.Utils;
 import pl.dream.dreamlib.Message;
 
 import java.util.ArrayList;
@@ -48,18 +49,7 @@ public class FirstJoinKit implements IKit{
             }
         }
 
-        HashMap<Integer, ItemStack> itemsToDrop = player.getInventory().addItem(kitItems.toArray(new ItemStack[0]));
-        World world = player.getWorld();
-        Location loc = player.getLocation();
-
-        for(ItemStack item:itemsToDrop.values()){
-            world.dropItem(loc, item);
-        }
-
-        if(!itemsToDrop.isEmpty()){
-            Message.sendMessage(player, Locale.ITEM_DROP.toString());
-        }
-
+        Utils.giveItems(player, kitItems);
         if(message!=null){
             Message.sendMessage(player, message);
         }

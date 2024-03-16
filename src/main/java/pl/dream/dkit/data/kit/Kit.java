@@ -91,17 +91,7 @@ public class Kit implements IKit{
             }
         }
 
-        HashMap<Integer, ItemStack> itemsToDrop = player.getInventory().addItem(kitItems.toArray(new ItemStack[0]));
-        World world = player.getWorld();
-        Location loc = player.getLocation();
-
-        for(ItemStack item:itemsToDrop.values()){
-            world.dropItem(loc, item);
-        }
-
-        if(!itemsToDrop.isEmpty()){
-            Message.sendMessage(player, Locale.ITEM_DROP.toString());
-        }
+        Utils.giveItems(player, kitItems);
 
         localPlayer.setDelay(name, (System.currentTimeMillis()/1000) + delay);
         DKit.getPlugin().sqLite.takeKit(player.getUniqueId(), name, delay);
@@ -128,17 +118,7 @@ public class Kit implements IKit{
             }
         }
 
-        HashMap<Integer, ItemStack> itemsToDrop = player.getInventory().addItem(kitItems.toArray(new ItemStack[0]));
-        World world = player.getWorld();
-        Location loc = player.getLocation();
-
-        for(ItemStack item:itemsToDrop.values()){
-            world.dropItem(loc, item);
-        }
-
-        if(!itemsToDrop.isEmpty()){
-            Message.sendMessage(player, Locale.ITEM_DROP.toString());
-        }
+        Utils.giveItems(player, kitItems);
     }
 
     public void displayPreview(LocalPlayer player){

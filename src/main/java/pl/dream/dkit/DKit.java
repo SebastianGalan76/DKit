@@ -7,10 +7,7 @@ import pl.dream.dkit.data.kit.IKit;
 import pl.dream.dkit.data.kit.Kit;
 import pl.dream.dkit.data.LocalPlayer;
 import pl.dream.dkit.inventory.KitListInventory;
-import pl.dream.dkit.listener.ClickInventoryListener;
-import pl.dream.dkit.listener.PlayerJoinListener;
-import pl.dream.dkit.listener.PlayerQuitListener;
-import pl.dream.dkit.listener.PlayerRespawnListener;
+import pl.dream.dkit.listener.*;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -33,14 +30,15 @@ public final class DKit extends JavaPlugin {
         sqLite = new SQLite();
         sqLite.connect();
 
+        loadPlugin();
+
         getCommand("kit").setExecutor(new KitCommand());
 
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
         getServer().getPluginManager().registerEvents(new ClickInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerRespawnListener(), this);
-
-        loadPlugin();
+        getServer().getPluginManager().registerEvents(new DragItemListener(), this);
     }
 
     @Override

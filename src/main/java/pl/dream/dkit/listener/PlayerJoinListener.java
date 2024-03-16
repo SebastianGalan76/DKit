@@ -13,13 +13,12 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e){
         Player player = e.getPlayer();
-        LocalPlayer localPlayer = new LocalPlayer(player);
-        DKit.getPlugin().players.put(player.getUniqueId(), localPlayer);
+        DKit.getPlugin().players.put(player.getUniqueId(), new LocalPlayer(player));
 
         if(!e.getPlayer().hasPlayedBefore()){
             IKit respawnKit = DKit.getPlugin().kits.get("firstJoinKit");
             if(respawnKit!=null){
-                respawnKit.giveKit(localPlayer);
+                respawnKit.giveKit(player);
             }
         }
     }

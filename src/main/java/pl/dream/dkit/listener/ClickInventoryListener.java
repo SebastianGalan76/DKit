@@ -3,6 +3,8 @@ package pl.dream.dkit.listener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryHolder;
 import pl.dream.dkit.DKit;
@@ -17,7 +19,11 @@ public class ClickInventoryListener implements Listener {
         if(e.getClickedInventory()==null){return; }
         InventoryHolder invHolder = e.getInventory().getHolder();
         if(invHolder instanceof KitListInventory || invHolder instanceof KitInventory){
-            if(e.getClick().isShiftClick()){
+            if(e.getClick().isShiftClick() || e.getClick() == ClickType.DOUBLE_CLICK){
+                e.setCancelled(true);
+            }
+
+            if(e.getAction() == InventoryAction.COLLECT_TO_CURSOR){
                 e.setCancelled(true);
             }
         }
